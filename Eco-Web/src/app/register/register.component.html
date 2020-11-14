@@ -1,0 +1,21 @@
+<div class="user">
+   
+    
+    <form class="form">
+        <div class="form__group">
+            <input type="text" placeholder="Username" class="form__input" />
+        </div>
+        
+        <div class="form__group">
+            <input type="email" placeholder="Email" class="form__input" #Email="ngModel" [(ngModel)]="user.Email" required [pattern]="emailPattern"/>
+            <label data-error="Email is Required!">Email</label>
+        </div>
+        
+        <div class="form__group">
+            <input type="password" placeholder="Password" class="form__input" #Password="ngModel"  [(ngModel)]="user.Password" required minlength="6"/>
+            <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Password Required':'Password should be at least 6 charackters!')"></label>
+        </div>
+        
+        <button [disabled]="!userRegistrationForm.valid" class="btn" type="button">Register</button>
+    </form>
+</div>
